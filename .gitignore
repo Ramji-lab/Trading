@@ -1,0 +1,6 @@
+.env
+token.json
+paper.json
+venv/
+__pycache__/
+*.pyc

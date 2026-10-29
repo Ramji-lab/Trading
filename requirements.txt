@@ -1,0 +1,10 @@
+flask
+flask-socketio
+simple-websocket
+python-dotenv
+requests
+aiohttp
+websocket-client
+pytz
+setuptools<81
+aws-lambda-powertools
