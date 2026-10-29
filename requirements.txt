@@ -1,4 +1,9 @@
-flask
+fyers-apiv3
+flask-socketio
+Flask>=3.0,<4.0
+python-dotenv>=1.0,<2.0
+fyers-apiv3>=3.1.0
+gunicorn
 flask-socketio
 simple-websocket
 python-dotenv
