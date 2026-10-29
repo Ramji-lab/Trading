@@ -579,9 +579,9 @@ def journal_note():
 def index():
     return send_from_directory("static", "index.html")
 
+import os
 
 if __name__ == "__main__":
-    if HOST not in ("127.0.0.1", "localhost") and not APP_PASSWORD:
-        raise SystemExit("Refusing to start: set APP_PASSWORD before exposing the server to a network.")
-    load_saved_token()
-    sio.run(app, host=HOST, port=PORT, allow_unsafe_werkzeug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port, debug=False)
+
