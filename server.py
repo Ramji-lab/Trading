@@ -13,11 +13,7 @@ from fyers_apiv3.FyersWebsocket import data_ws
 
 CLIENT_ID = os.environ["FYERS_CLIENT_ID"]
 SECRET = os.environ["FYERS_SECRET_KEY"]
-import re
-# Hosted address: PUBLIC_URL if set, else the URL Render provides automatically
-_pub = (os.getenv("PUBLIC_URL") or os.getenv("RENDER_EXTERNAL_URL") or "").strip().rstrip("/")
-def _clean(u): return re.sub(r"(?<!:)/{2,}", "/", u.strip())   # fixes accidental double slashes such as //callback
-REDIRECT = _clean(os.getenv("FYERS_REDIRECT_URI") or "") or ((_pub + "/callback") if _pub else "http://127.0.0.1:5000/callback")
+REDIRECT = os.getenv("FYERS_REDIRECT_URI", "http://127.0.0.1:5000/callback")
 TRADING = os.getenv("ENABLE_TRADING", "0") == "1"
 PAPER = True   # current mode: always starts in paper; switch with POST /api/mode
 MAX_LIVE_QTY = int(os.getenv("MAX_LIVE_QTY", "100"))   # per-order cap for live orders
@@ -28,7 +24,7 @@ IST = 19800  # chart timestamps are shifted to IST
 
 HOST = os.getenv("HOST", "127.0.0.1")
 PORT = int(os.getenv("PORT", "5000"))
-PUBLIC_URL = _pub        # e.g. https://terminal.example.com (set when hosted)
+PUBLIC_URL = os.getenv("PUBLIC_URL", "")        # e.g. https://terminal.example.com (set when hosted)
 APP_PASSWORD = os.getenv("APP_PASSWORD", "")    # protects the whole site when set
 
 app = Flask(__name__, static_folder="static")
