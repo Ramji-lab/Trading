@@ -13,7 +13,7 @@ from fyers_apiv3.FyersWebsocket import data_ws
 
 CLIENT_ID = os.environ["FYERS_CLIENT_ID"]
 SECRET = os.environ["FYERS_SECRET_KEY"]
-REDIRECT = os.getenv("FYERS_REDIRECT_URI", "http://127.0.0.1:5000/callback")
+REDIRECT = os.getenv("FYERS_REDIRECT_URI", "https://trading-bphm.onrender.com//callback")
 TRADING = os.getenv("ENABLE_TRADING", "0") == "1"
 PAPER = True   # current mode: always starts in paper; switch with POST /api/mode
 MAX_LIVE_QTY = int(os.getenv("MAX_LIVE_QTY", "100"))   # per-order cap for live orders
