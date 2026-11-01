@@ -24,7 +24,7 @@ IST = 19800  # chart timestamps are shifted to IST
 
 HOST = os.getenv("HOST", "127.0.0.1")
 PORT = int(os.getenv("PORT", "10000"))
-PUBLIC_URL = os.getenv("PUBLIC_URL", "https://trading-s7kw.onrender.com/")        # e.g. https://terminal.example.com (set when hosted)
+PUBLIC_URL = os.getenv("PUBLIC_URL")        # e.g. https://terminal.example.com (set when hosted)
 APP_PASSWORD = os.getenv("APP_PASSWORD", "")    # protects the whole site when set
 
 app = Flask(__name__, static_folder="static")
